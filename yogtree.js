@@ -111,7 +111,7 @@ function gotResult(error, results){
 }
    
    }
- else{poseLabel="3";
+ else{poseLabel="stand back";
       if(poseLabel!=tmp){
        
       const utterance = new SpeechSynthesisUtterance("show full body")
