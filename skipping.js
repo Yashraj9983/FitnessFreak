@@ -68,13 +68,13 @@ function draw() {
         counter=counter+1;
       }
        stat2=1;
-    }
+    }}
     else{
      if(tmp32==0){
     const utterance = new SpeechSynthesisUtterance("show full body and jump above the line")
         utterance.pitch = 1
         utterance.volume = 1
-        utterance.rate = 3
+        utterance.rate = 0
         speechSynthesis.speak(utterance)}
     tmp32=1;}}
     pop();
