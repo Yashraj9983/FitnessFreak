@@ -106,7 +106,7 @@ function gotResult(error, results){
      
      if(poseLabel!=tmp){
       cnt+=1; 
-      if(cnt<3){
+      if(cnt<2){
       const utterance = new SpeechSynthesisUtterance("put your foot on your knees as shown in picture")
         utterance.pitch = 1
         utterance.volume = 1
@@ -120,7 +120,7 @@ function gotResult(error, results){
  else{poseLabel="stand back";
       if(poseLabel!=tmp){
        cnt3+=1;
-       if(cnt3<3){
+       if(cnt3<2){
       const utterance = new SpeechSynthesisUtterance("show full body")
         utterance.pitch = 1
         utterance.volume = 1
