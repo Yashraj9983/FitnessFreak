@@ -14,6 +14,7 @@ let w2=window.innerHeight;
 let l1=100;
 let cnt=0;
 let cnt2=0;
+let cnt3=0;
 c1=680;
 c2=480;
 if(w1<w2) 
@@ -88,13 +89,14 @@ function gotResult(error, results){
    }else{
      poseLabel="join hands";
       if(poseLabel!=tmp){
-       
+       cnt2+=1;
+       if(cnt2<3){
       const utterance = new SpeechSynthesisUtterance("join your hands")
         utterance.pitch = 1
         utterance.volume = 1
         utterance.rate = 0.8
         speechSynthesis.speak(utterance)
-      }
+      }}
       tmp=poseLabel;
       } 
    
@@ -117,13 +119,14 @@ function gotResult(error, results){
    }
  else{poseLabel="stand back";
       if(poseLabel!=tmp){
-       
+       cnt3+=1;
+       if(cnt3<3){
       const utterance = new SpeechSynthesisUtterance("show full body")
         utterance.pitch = 1
         utterance.volume = 1
         utterance.rate = 0.8
         speechSynthesis.speak(utterance)
-      }
+      }}
       tmp=poseLabel;
 }}
   classifyPose();
