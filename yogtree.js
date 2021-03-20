@@ -84,7 +84,7 @@ function gotResult(error, results){
       }
       tmp=poseLabel;
    }else{
-     poseLabel="1";
+     poseLabel="join hands";
       if(poseLabel!=tmp){
        
       const utterance = new SpeechSynthesisUtterance("join your hands")
@@ -98,7 +98,7 @@ function gotResult(error, results){
    
    
    }
-   else{poseLabel="2";
+   else{poseLabel="wrong";
       if(poseLabel!=tmp){
        
       const utterance = new SpeechSynthesisUtterance("put your foot on your knees as shown in picture")
