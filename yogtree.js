@@ -12,6 +12,8 @@ let stat2=0;
 let w1=window.innerWidth;
 let w2=window.innerHeight;
 let l1=100;
+let cnt=0;
+let cnt2=0;
 c1=680;
 c2=480;
 if(w1<w2) 
@@ -98,15 +100,17 @@ function gotResult(error, results){
    
    
    }
-   else{poseLabel="wrong";
-      if(poseLabel!=tmp){
-       
+   else{poseLabel="foot place";
+     
+     if(poseLabel!=tmp){
+      cnt+=1; 
+      if(cnt<3){
       const utterance = new SpeechSynthesisUtterance("put your foot on your knees as shown in picture")
         utterance.pitch = 1
         utterance.volume = 1
         utterance.rate = 0.8
         speechSynthesis.speak(utterance)
-      }
+      }}
       tmp=poseLabel;
 }
    
