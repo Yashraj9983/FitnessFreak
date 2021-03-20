@@ -15,6 +15,7 @@ let l1=100;
 let cnt=0;
 let cnt2=0;
 let cnt3=0;
+let cnt4=0;
 c1=680;
 c2=480;
 if(w1<w2) 
@@ -73,18 +74,19 @@ function gotResult(error, results){
   
  if (results[0].confidence > 0.95) {
    if(pose.rightKnee.y<480){
-   if((pose.rightKnee.y+20>pose.leftAnkle.y)||(pose.leftKnee.y+20>pose.rightAnkle.y)){
+   if((pose.rightKnee.y+50>pose.leftAnkle.y)||(pose.leftKnee.y+50>pose.rightAnkle.y)){
      if(pose.rightWrist.x>pose.rightShoulder.x && pose.rightWrist.x<pose.leftShoulder.x && pose.leftWrist.x>pose.rightShoulder.x && pose.leftWrist.x<pose.leftShoulder.x){//if(results[0].label=='a')
      
       poseLabel="Tree";
       if(poseLabel!=tmp){
-       
+       cnt4+=1;
+       if(cnt4<5){
       const utterance = new SpeechSynthesisUtterance("Correct TREE POSE")
         utterance.pitch = 1
         utterance.volume = 1
         utterance.rate = 0.8
         speechSynthesis.speak(utterance)
-      }
+      }}
       tmp=poseLabel;
    }else{
      poseLabel="join hands";
