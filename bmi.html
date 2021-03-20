@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>BMI-Calculator</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Acme">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Adamina">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
+        <div class="container"><a class="navbar-brand text-uppercase logo" href="#" style="font-size: 24px;">Fitness Freak</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="fitness.html">Fitness Corner</a></li>
+                    <li class="nav-item"><a class="nav-link" href="yoga.html">Yoga Poses</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="page landing-page">
+        
+        <h1 style="text-align: center;padding-top: 2%">BMI CALCULATOR</h1>
+        <div class="container">
+            <div class="card-body">
+                <form class="w-50 m-auto" onsubmit="return false">
+                 <div class="form-group">
+                    <label> Weight: </label>
+                    <input type="number" name="" placeholder="Weight in Kg" required id="weight" class="form-control" step=".01">
+                 </div>   
+                 <div class="form-group">
+                    <label> Height: </label>
+                    <input type="number" name="" placeholder="Height in cm" required id="height" class="form-control" step=".01">
+                 </div>   
+                 <div>
+                     <button type="submit" class="btn btn-success" onclick="getbmivalue()">CHECK BMI</button>
+                 </div>
+                 <div class="form-group">
+                    <h4 style="margin-top: 3%"><span id="bmiv"></span> <span id="bmivalue"> </span> </h4>
+                    <h4 id="weightcategory"></h4>
+                 </div>   
+                 
+                </form>
+             </div>
+             <script >
+                 function getbmivalue(){
+                    var weight=document.getElementById('weight').value;
+                    var height=document.getElementById('height').value;
+                    height=height/100;
+                    var newbmi = weight/(height*height);
+                    document.getElementById('bmiv').innerHTML="BMI Value : ";
+                    
+                    var newbmi1= Number(Math.round(newbmi+"e2")+"e-2");
+                    document.getElementById('bmivalue').innerHTML=newbmi1;
+
+                    var weightcat="good";
+                    if(newbmi<18){
+                        weightcat="Under Weight";
+                    }
+                    else if(newbmi>18 && newbmi<25){
+                        weightcat="Healthy";
+                    }
+                    else if(newbmi>25 && newbmi<30){
+                        weightcat="Over Weight"
+                    }
+                    else if(newbmi>30 && newbmi<40){
+                        weightcat="Obese"
+                    }
+                    else if(newbmi>40){
+                        weightcat="Extremely Obese"
+                    }
+
+                    document.getElementById('weightcategory').innerHTML=weightcat;
+
+
+                 }
+             </script>
+        </div>        
+        <section class="portfolio-block block-intro">
+            <div class="container">
+                <div><img class="img-fluid image" src="assets/img/bmi-chart.png"></div>
+            </div>
+        </section>
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="links"><a href="#">About me</a><a href="#">Contact me</a><a href="#">Projects</a></div>
+            <div class="social-icons"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-instagram-outline"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a></div>
+        </div>
+    </footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>
