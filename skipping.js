@@ -68,15 +68,7 @@ function draw() {
         counter=counter+1;
       }
        stat2=1;
-    }}
-    else{
-     if(tmp32==0){
-    const utterance = new SpeechSynthesisUtterance("show full body and jump above the line")
-        utterance.pitch = 1
-        utterance.volume = 1
-        utterance.rate = 0
-        speechSynthesis.speak(utterance)}
-    tmp32=1;}}
+    }
     pop();
 fill(255);
     line(100,100,500,100);    
@@ -85,4 +77,13 @@ fill(255);
 textSize(100);
 textAlign(CENTER);
     text(parseInt(counter/2),width/2,height/6);
-}}
+}
+      else{
+     if(tmp32==0){
+    const utterance = new SpeechSynthesisUtterance("show full body and jump above the line")
+        utterance.pitch = 1
+        utterance.volume = 1
+        utterance.rate = 0
+        speechSynthesis.speak(utterance)}
+    tmp32=1;}
+}
