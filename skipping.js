@@ -7,6 +7,7 @@ let stat2=0;
 let w1=window.innerWidth;
 let w2=window.innerHeight;
 let l1=100;
+let tmp32=0;
 c1=680;
 c2=480;
 if(w1<w2) 
@@ -67,7 +68,15 @@ function draw() {
         counter=counter+1;
       }
        stat2=1;
-    } }
+    }
+    else{
+     if(tmp32==0){
+    const utterance = new SpeechSynthesisUtterance("show full body and jump above the line")
+        utterance.pitch = 1
+        utterance.volume = 1
+        utterance.rate = 3
+        speechSynthesis.speak(utterance)}
+    tmp32=1;}}
     pop();
 fill(255);
     line(100,100,500,100);    
