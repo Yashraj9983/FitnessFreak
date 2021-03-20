@@ -7,7 +7,6 @@ let stat2=0;
 let w1=window.innerWidth;
 let w2=window.innerHeight;
 let l1=100;
-let tmp32=0;
 c1=680;
 c2=480;
 if(w1<w2) 
@@ -68,7 +67,7 @@ function draw() {
         counter=counter+1;
       }
        stat2=1;
-    }
+    } }
     pop();
 fill(255);
     line(100,100,500,100);    
