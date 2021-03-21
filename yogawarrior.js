@@ -80,13 +80,14 @@ function gotResult(error, results){
      
       poseLabel="Warrior II";
         if(poseLabel!=tmp){
-
-        const utterance = new SpeechSynthesisUtterance("WARRIOR 2 POSE")
+        cnt4+=1;
+         if(cnt4<5){
+        const utterance = new SpeechSynthesisUtterance("CORRECT WARRIOR 2 POSE")
         utterance.pitch = 1
         utterance.volume = 1
         utterance.rate = 0.8
         speechSynthesis.speak(utterance)
-        }  tmp=poseLabel;
+        }}  tmp=poseLabel;
    } else{poseLabel="knee pose";
       if(poseLabel!=tmp){
        cnt2+=1;
