@@ -12,6 +12,10 @@ let stat2=0;
 let w1=window.innerWidth;
 let w2=window.innerHeight;
 let l1=100;
+let cnt=0;
+let cnt2=0;
+let cnt3=0;
+let cnt4=0;
 c1=680;
 c2=480;
 if(w1<w2) 
@@ -70,7 +74,8 @@ function gotResult(error, results){
   
  if (results[0].confidence > 0.95) {
    if(pose.rightKnee.y<480){
-    if((pose.rightElbow.y>pose.nose.y && pose.rightElbow.y<(pose.rightShoulder.y+40))&&(pose.leftElbow.y>pose.nose.y && pose.leftElbow.y<(pose.leftShoulder.y+40))){if(pose.rightKnee.x<=pose.rightAnkle.x && (pose.leftKnee.x+20)<pose.leftAnkle.x) 
+    if((pose.rightElbow.y>pose.nose.y && pose.rightElbow.y<(pose.rightShoulder.y+40))&&(pose.leftElbow.y>pose.nose.y && pose.leftElbow.y<(pose.leftShoulder.y+40))){
+     if(pose.rightKnee.x<=pose.rightAnkle.x && (pose.leftKnee.x+20)<pose.leftAnkle.x) 
        {//if(results[0].label=='c')
      
       poseLabel="Warrior II";
@@ -82,18 +87,51 @@ function gotResult(error, results){
         utterance.rate = 0.8
         speechSynthesis.speak(utterance)
         }  tmp=poseLabel;
-   } else{poseLabel=".."; 
+   } else{poseLabel="knee pose";
+      if(poseLabel!=tmp){
+       cnt2+=1;
+       if(cnt2<3){
+      const utterance = new SpeechSynthesisUtterance("bend right knee")
+        utterance.pitch = 1
+        utterance.volume = 1
+        utterance.rate = 0.8
+        speechSynthesis.speak(utterance)
+      }}
+      tmp=poseLabel;
            }
    } 
      
      
    else{
-     poseLabel="..";
+     poseLabel="hand place";
+     
+     if(poseLabel!=tmp){
+      cnt+=1; 
+      if(cnt<2){
+      const utterance = new SpeechSynthesisUtterance("raise your hands in a line as shown in picture")
+        utterance.pitch = 1
+        utterance.volume = 1
+        utterance.rate = 0.8
+        speechSynthesis.speak(utterance)
+      }}
+      tmp=poseLabel;
     
   
    }
    
-   }}
+   }
+  else{poseLabel="stand back";
+      if(poseLabel!=tmp){
+       cnt3+=1;
+       if(cnt3<2){
+      const utterance = new SpeechSynthesisUtterance("show full body")
+        utterance.pitch = 1
+        utterance.volume = 1
+        utterance.rate = 0.8
+        speechSynthesis.speak(utterance)
+      }}
+      tmp=poseLabel;
+}}
    
   classifyPose();
 }
